@@ -36,10 +36,10 @@ int ec_save(EC_KEY *key, char const *folder){
 	else
 	{
 		fprintf(stderr,"%s","opendir failed");
-	}
-	fprintf(stderr,"%s","before snp");
+	}	
 	snprintf(pub_path, PATH_MAX + 1, "%s%c%s", folder,separ,PUB_FILENAME);
 	snprintf(pv_path,PATH_MAX + 1,"%s%c%s",folder,separ,PRI_FILENAME);
+
 	fpub = fopen(pub_path,"w+");
         fpriv = fopen(pv_path, "w+");
 	
@@ -56,8 +56,8 @@ int ec_save(EC_KEY *key, char const *folder){
 		return 0;
 
 	}
+
 	fclose(fpub);
 	fclose(fpriv);
 	return 1;
-
 }
