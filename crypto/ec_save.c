@@ -19,23 +19,23 @@ int ec_save(EC_KEY *key, char const *folder){
 	}
 	if(opendir(folder))
 	{
-		fprintf(stderr,"%s","folder EXISTS");	
+		fprintf(stderr,"%s","folder EXISTS\n");	
 	}
 	else if(ENOENT == errno)
 	{
 		if(mkdir(folder,0777)==-1)
 		{
-			fprintf(stderr,"%s","ERROR creating directory");
+			fprintf(stderr,"%s","ERROR creating directory\n");
 			return 0;
 		}
 		else
 		{	
-			fprintf(stderr,"%s","Directory successfully created");
+			fprintf(stderr,"%s","Directory successfully created\n");
 		}
 	}
 	else
 	{
-		fprintf(stderr,"%s","opendir failed");
+		fprintf(stderr,"%s","opendir failed\n");
 	}	
 	snprintf(pub_path, PATH_MAX + 1, "%s%c%s", folder,separ,PUB_FILENAME);
 	snprintf(pv_path,PATH_MAX + 1,"%s%c%s",folder,separ,PRI_FILENAME);
