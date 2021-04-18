@@ -24,3 +24,4 @@ block_t *block_create(block_t const *prev, int8_t const *data,
 	memset(block->hash, 0, 32);
 	return (block);
 }
+
