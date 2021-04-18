@@ -24,7 +24,7 @@
 #define HBLK_VERSION "0.1"
 #define HBLK_VERSION_LEN 3
 
-
+#define BLOCK_DATA_MAX_LEN 1024
 #define BLOCKCHAIN_DATA_MAX 1024
 
 #define GENESIS_INDEX 	0								
@@ -130,4 +130,6 @@ void block_destroy(block_t *block);
 void blockchain_destroy(blockchain_t *blockchain);
 uint8_t *block_hash(block_t const *block, uint8_t hash_buf[SHA256_DIGEST_LENGTH]);
 int blockchain_serialize(blockchain_t const *blockchain, char const *path);
+blockchain_t *blockchain_deserialize(char const *path);
+int block_is_valid(block_t const *block, block_t const *prev_block);
 #endif
