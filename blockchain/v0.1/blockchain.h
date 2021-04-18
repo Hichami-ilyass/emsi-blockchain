@@ -19,6 +19,12 @@
 #include "../../crypto/hblk_crypto.h"
 
 
+#define HBLK_MAGIC "HBLK"
+#define HBLK_MAGIC_LEN	4
+#define HBLK_VERSION "0.1"
+#define HBLK_VERSION_LEN 3
+
+
 #define BLOCKCHAIN_DATA_MAX 1024
 
 #define GENESIS_INDEX 	0								
@@ -123,4 +129,5 @@ block_t *block_create(block_t const *prev, int8_t const *data,uint32_t data_len)
 void block_destroy(block_t *block);
 void blockchain_destroy(blockchain_t *blockchain);
 uint8_t *block_hash(block_t const *block, uint8_t hash_buf[SHA256_DIGEST_LENGTH]);
+int blockchain_serialize(blockchain_t const *blockchain, char const *path);
 #endif
