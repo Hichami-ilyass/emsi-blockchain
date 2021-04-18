@@ -50,6 +50,7 @@
 		"\x0c\x8e\x00\x09\xc8\x17\xf2\xb1\xd3\xd7\xff\x2f\x04\x51\x58\x03" \
 		}					
 
+#define MIN(x, y) ((x) < (y) ? (x) : (y))
 
 /**
  * struct block_data_s - Block data
@@ -118,7 +119,7 @@ typedef struct blockchain_s
 } blockchain_t;
 
 blockchain_t *blockchain_create(void);
-
+block_t *block_create(block_t const *prev, int8_t const *data,uint32_t data_len);
 
 
 #endif
